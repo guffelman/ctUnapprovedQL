@@ -1,0 +1,31 @@
+<template>
+    <div class="main">
+        <!-- Make the word "cannot" red-->
+        <h1>This quote has quote lines with unapproved discounts. Until all discounts are approved, <span style="color: red; font-weight:bold;">NO RBO</span> can be sent. The unapproved quote lines are listed below:</h1>
+        <!-- table should be centered in 50% of the div-->
+        <div class="container">
+
+        
+
+
+         <table class="table">
+            <tbody>
+                <template if:true={unapprovedQuoteLinesData}>
+                    <template for:each={unapprovedQuoteLinesData} for:item="unapprovedQuoteLine">
+                        <tr data-recordid={unapprovedQuoteLine.id} key={unapprovedQuoteLine.id}>
+                            <td onclick={navigateToRecord}>{unapprovedQuoteLine.Name}</td>
+                            <td>{unapprovedQuoteLine.Line_Description__c}</td>
+                        </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>  
+        
+   
+        <!-- <lightning-datatable key-field="Id" data={unapprovedQuoteLinesData} columns={columns} onrowaction={handleRowAction}>
+        </lightning-datatable> -->
+
+    </div>
+
+    </div>
+</template>
